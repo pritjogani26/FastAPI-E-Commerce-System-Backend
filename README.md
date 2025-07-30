@@ -19,9 +19,9 @@ efficient operations.
 <h2>Key Components:</h2>
 
 <h3>User Authentication & Authorization</h3>
-<p>
-•  Utilizing <b>OAuth2</b> and <b>JWT tokens</b> for secure user authentication and session management.
-</p>
+<ul>
+    <li>Utilizing <b>OAuth2</b> and <b>JWT tokens</b> for secure user authentication and session management.</li>
+</ul>
 
 <h3>Product Management</h3>
 <p>
