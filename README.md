@@ -20,7 +20,7 @@ efficient operations.
 
 <h3>User Authentication & Authorization</h3>
 <p>
-<h2>•</h2>  Utilizing <b>OAuth2</b> and <b>JWT tokens</b> for secure user authentication and session management.
+•  Utilizing <b>OAuth2</b> and <b>JWT tokens</b> for secure user authentication and session management.
 </p>
 
 <h3>Product Management</h3>
