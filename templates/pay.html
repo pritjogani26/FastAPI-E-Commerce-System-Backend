@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pay with Razorpay</title>
+</head>
+<body>
+    <h2>Enter Order ID to Pay</h2>
+    <form method="post">
+        <input type="text" name="order_id" placeholder="Order ID" required>
+        <button type="submit">Pay Now</button>
+    </form>
+
+    {% if order and rzp_order %}
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <form id="payment-form" action="/verify" method="POST">
+        <input type="hidden" name="razorpay_order_id" value="{{ rzp_order.id }}">
+        <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+        <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+        <input type="hidden" name="order_id" value="{{ order.order_id }}">
+        <input type="hidden" name="amount" value="{{ order.total_amount }}">
+    </form>
+
+    <script>
+        var options = {
+            "key": "{{ key }}",
+            "amount": "{{ rzp_order.amount }}",
+            "currency": "INR",
+            "name": "Your Store",
+            "description": "Order Payment",
+            "order_id": "{{ rzp_order.id }}",
+            "handler": function (response) {
+                document.getElementById("razorpay_payment_id").value = response.razorpay_payment_id;
+                document.getElementById("razorpay_signature").value = response.razorpay_signature;
+                document.getElementById("payment-form").submit();
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    </script>
+    {% endif %}
+</body>
+</html>

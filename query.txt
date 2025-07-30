@@ -1,0 +1,113 @@
+SELECT 
+    o.order_id,
+    u.name AS customer_name,
+    o.order_date,
+    u.address,
+    STRING_AGG(
+        p.product_name || ' (' || od.quantity || ' * ' || p.price || ')', 
+        ', '
+    ) AS product_details,
+    SUM(od.quantity * p.price) AS order_total
+FROM 
+    orders o
+JOIN 
+    users u ON o.customer_id = u.id
+JOIN 
+    order_details od ON o.order_id = od.order_id
+JOIN 
+    products p ON od.product_id = p.product_id
+GROUP BY 
+    o.order_id, u.name, o.order_date, u.address
+ORDER BY 
+    o.order_date DESC;
+
+
+
+SELECT * FROM cart_details;
+SELECT * FROM cart;
+SELECT * FROM order_details;
+SELECT * FROM orders;
+SELECT * FROM products;
+SELECT * FROM categories;
+
+DROP TABLE cart_details;
+DROP TABLE cart;
+DROP TABLE order_details;
+DROP TABLE orders;
+DROP TABLE products;
+DROP TABLE categories;
+
+INSERT INTO categories (category_name, description, listed_time) VALUES
+('Electronics', 'Devices and electronic gadgets', now()),
+('Books', 'All genres of books and literature', now()),
+('Clothing', 'Apparel and garments for all', now()),
+('Home Appliances', 'Equipment for household needs', now()),
+('Sports & Outdoors', 'Sporting goods and outdoor equipment', now()),
+('Toys', 'Toys and games for children', now()),
+('Beauty', 'Beauty products and accessories', now()),
+('Automotive', 'Car and bike accessories', now()),
+('Furniture', 'Home and office furniture', now()),
+('Groceries', 'Daily essentials and groceries', now());
+
+INSERT INTO products (product_name, category_id, unit, price, listed_time) VALUES
+('Redmi Note 13', 1, 50, 16999.00, now()),
+('Samsung Galaxy M14', 1, 40, 13999.00, now()),
+('Wings of Fire by A.P.J. Abdul Kalam', 2, 100, 299.00, now()),
+('Bhagavad Gita (English Edition)', 2, 80, 199.00, now()),
+('Mens Cotton Kurta', 3, 150, 699.00, now()),
+('Womens Ethnic Saree', 3, 120, 1199.00, now()),
+('IFB Front Load Washing Machine 6.5 kg', 4, 20, 23990.00, now()),
+('Voltas 1.5 Ton Split AC', 4, 15, 31990.00, now()),
+('SG Cricket Bat (English Willow)', 5, 60, 2499.00, now()),
+('NIVIA Football Size 5', 5, 70, 599.00, now()),
+('Funskool Lego Bricks Set', 6, 90, 799.00, now()),
+('Barbie Dreamtopia Doll', 6, 85, 749.00, now()),
+('Lakme Lipstick Combo Pack', 7, 200, 499.00, now()),
+('Ponds Moisturizing Cream 100g', 7, 180, 229.00, now()),
+('Bergmann Car Vacuum Cleaner', 8, 25, 1799.00, now()),
+('Vega Cruiser Bike Helmet', 8, 30, 1399.00, now()),
+('Green Soul Office Chair', 9, 35, 6499.00, now()),
+('Nilkamal Wooden Study Table', 9, 25, 3999.00, now()),
+('India Gate Basmati Rice 5kg', 10, 300, 549.00, now()),
+('Fortune Sunlite Refined Oil 1L', 10, 280, 139.00, now());
+
+INSERT INTO products (product_name, category_id, unit, price, listed_time) VALUES
+-- Electronics
+('boAt Airdopes 141 Bluetooth Earbuds', 1, 100, 1299.00, now()),
+('Mi Power Bank 20000mAh', 1, 60, 1999.00, now()),
+
+-- Books
+('Rich Dad Poor Dad', 2, 70, 349.00, now()),
+('Indian Polity by M. Laxmikanth', 2, 40, 799.00, now()),
+
+-- Clothing
+('Men\'s Casual Shirt (Cotton)', 3, 110, 899.00, now()),
+('Women\'s Palazzo Pants Set', 3, 95, 999.00, now()),
+
+-- Home Appliances
+('Prestige Electric Kettle 1.5L', 4, 50, 949.00, now()),
+('Philips Mixer Grinder 750W', 4, 30, 2899.00, now()),
+
+-- Sports & Outdoors
+('Yonex Badminton Racket', 5, 45, 1099.00, now()),
+('Strauss Yoga Mat 6mm', 5, 60, 799.00, now()),
+
+-- Toys
+('Remote Control Car', 6, 70, 999.00, now()),
+('Chhota Bheem Puzzle Game', 6, 80, 399.00, now()),
+
+-- Beauty
+('Mamaearth Onion Hair Oil 150ml', 7, 140, 399.00, now()),
+('Nivea Soft Light Moisturizer 200ml', 7, 130, 299.00, now()),
+
+-- Automotive
+('3M Car Interior Cleaner 500ml', 8, 40, 349.00, now()),
+('Motul 7100 Engine Oil 1L', 8, 35, 599.00, now()),
+
+-- Furniture
+('Nilkamal Plastic Chair Set of 2', 9, 20, 1599.00, now()),
+('Urban Ladder Study Lamp', 9, 50, 899.00, now()),
+
+-- Groceries
+('Tata Salt 1kg', 10, 400, 28.00, now()),
+('Aashirvaad Atta 5kg', 10, 250, 275.00, now());

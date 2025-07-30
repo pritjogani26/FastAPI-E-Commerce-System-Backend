@@ -1,0 +1,59 @@
+<!-- email_file/order_conformation.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Confirmation</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    h2, h4 {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hi {{ name }},</h2>
+  <p>Thank you for your order! Here are your order details:</p>
+
+  <h4>Order ID: {{ details.order_id }}</h4>
+  <h4>Order Date: {{ details.order_date }}</h4>
+  <h4>Address: {{ details.address }}</h4>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in details.products %}
+      <tr>
+        <td>{{ product.product_id }}</td>
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>₹{{ product.price }}</td>
+        <td>₹{{ product.subtotal }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Total Amount: ₹{{ details.total_amount }}</h3>
+
+  <p>Regards,<br>Your App Team</p>
+</body>
+</html>

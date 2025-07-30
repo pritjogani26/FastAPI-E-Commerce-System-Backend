@@ -1,0 +1,10 @@
+docker run -d -p 6379:6379 redis
+
+python -m  venv venv
+.\venv\Scripts\activate
+pip install -r .\requirements.txt
+
+celery -A email_file.email_with_html.celery_app worker --pool=solo --loglevel=info
+
+uvicorn main:app --reload
+
