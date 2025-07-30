@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FastAPI E-Commerce System Backend</title>
 </head>
 
 <body>
@@ -163,10 +162,6 @@ uvicorn main:app --reload
 Contributions to this project are welcome! Please feel free to submit pull requests, report issues, or suggest improvements.
 </p>
 
-<h2>License</h2>
-<p>
-This project is licensed under the MIT License.
-</p>
 </body>
 
 </html>
