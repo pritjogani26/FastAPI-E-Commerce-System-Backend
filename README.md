@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FastAPI E-Commerce System Backend</title>
 </head>
 
 <body>
@@ -21,7 +20,7 @@ efficient operations.
 
 <h3>User Authentication & Authorization</h3>
 <p>
-Utilizing <b>OAuth2</b> and <b>JWT tokens</b> for secure user authentication and session management.
+<h2>•</h2>  Utilizing <b>OAuth2</b> and <b>JWT tokens</b> for secure user authentication and session management.
 </p>
 
 <h3>Product Management</h3>
