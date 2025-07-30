@@ -24,29 +24,29 @@ efficient operations.
 </ul>
 
 <h3>Product Management</h3>
-<p>
+<ul>
 CRUD operations for product listings, categories, and related data.
-</p>
+</ul>
 
 <h3>Shopping Cart</h3>
-<p>
+<ul>
 Adding, editing, and viewing items in the cart, along with order history.
-</p>
+</ul>
 
 <h3>Email Integration</h3>
-<p>
+<ul>
 Email functionality for order confirmations, password resets, and user verification, utilizing <b>Redis</b> for optimized email processing.
-</p>
+</ul>
 
 <h3>Payment Integration</h3>
-<p>
+<ul>
 Integrated with payment gateways for handling order payments and generating invoices.
-</p>
+</ul>
 
 <h3>Database Interaction</h3>
-<p>
+<ul>
 Uses <b>SQLAlchemy ORM</b> to interact with <b>PostgreSQL</b>, handling data operations for users, products, orders, and more.
-</p>
+</ul>
 
 <h2>Setup & Installation:</h2>
 
