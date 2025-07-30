@@ -1,5 +1,6 @@
 # Ignore the .env file containing sensitive information
-.env
+# .env
+envtext.txt
 
 # Ignore Python cache files
 __pycache__/
